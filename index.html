@@ -4,48 +4,40 @@
     const av1 = [5.3, 7.2, 8.4, 2.4, 3.5];
     const av2 = [8.0, 5.0, 4.5, 7.5, 4.5];
 
-    let menor = Number.MAX_SAFE_INTEGER;
-    let maior = Number.MIN_SAFE_INTEGER;
+    function menorMaiorNota(notas) {
+        let menor = Number.MAX_SAFE_INTEGER;
+        let maior = Number.MIN_SAFE_INTEGER;
+        for (let i = 0; i < notas.length; i++) {
+            if (notas[i] < menor) {
+                menor = notas[i];
+            }
 
-    for (let i = 0; i < av1.length; i++) {
-        if (av1[i] < menor) {
-            menor = av1[i];
+            if (notas[i] > maior) {
+                maior = notas[i];
+            }
         }
 
-        if (av1[i] > maior) {
-            maior = av1[i];
-        }
+        return [menor, maior];
     }
 
     document.write("AVALIAÇÃO 1<br>");
-    document.write("Nota mais baixa avaliação 1: " + menor + "<br>");
-    document.write("Nota mais alta avaliação 1: " + maior + "<br><br>");
-
-    menor = Number.MAX_SAFE_INTEGER;
-    maior = Number.MIN_SAFE_INTEGER;
-
-    for (let i = 0; i < av2.length; i++) {
-        if (av2[i] < menor) {
-            menor = av2[i];
-        }
-
-        if (av2[i] > maior) {
-            maior = av2[i];
-        }
-    }
+    document.write("Nota mais baixa avaliação 1: " + menorMaiorNota(av1)[0] + "<br>");
+    document.write("Nota mais alta avaliação 1: " + menorMaiorNota(av1)[1] + "<br><br>");
 
     document.write("AVALIAÇÃO 2<br>");
-    document.write("Nota mais baixa avaliação 2: " + menor + "<br>");
-    document.write("Nota mais alta avaliação 2: " + maior + "<br><br>");
+    document.write("Nota mais baixa avaliação 2: " + menorMaiorNota(av2)[0] + "<br>");
+    document.write("Nota mais alta avaliação 2: " + menorMaiorNota(av2)[1] + "<br><br>");
 
 
     let medias = [];
 
+    //Gerando as medias e salvando no array de medias
     for (let i = 0; i < av1.length; i++) {
         let media = (av1[i] + av2[i]) / 2;
         medias[i] = media;
     }
 
+    //Fazendo um bubble sort dos valores de media para ordena-los
     for (let i = 0; i < medias.length; i++) {
         for (let j = 0; j < medias.length - i; j++) {
             if (medias[j] > medias[j + 1]) {
@@ -58,28 +50,15 @@
     document.write("MEDIAS DA TURMA <br>")
     document.write(medias + "<br>");
 
-    menor = Number.MAX_SAFE_INTEGER;
-    maior = Number.MIN_SAFE_INTEGER;
-
-    for (let i = 0; i < medias.length; i++) {
-        if (medias[i] < menor) {
-            menor = medias[i];
-        }
-
-        if (medias[i] > maior) {
-            maior = medias[i];
-        }
-    }
-
-    document.write("Media mais baixa da turma: " + menor + "<br>");
-    document.write("Media mais alta da turma: " + maior + "<br><br>");
+    document.write("Media mais baixa da turma: " + menorMaiorNota(medias)[0] + "<br>");
+    document.write("Media mais alta da turma: " + menorMaiorNota(medias)[1] + "<br><br>");
 
     let recuperacao = [];
     let contador = 0;
     for (let nota of medias) {
         if (nota >= 5.0) {
             contador++;
-        }else{
+        } else {
             recuperacao.push(nota);
         }
     }
