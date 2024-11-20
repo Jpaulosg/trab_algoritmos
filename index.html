@@ -1,8 +1,8 @@
 <meta charset="UTF-8">
 
 <script>
-    const av1 = [5.3, 7.2, 8.4, 2.4, 3.5];
-    const av2 = [8.0, 5.0, 4.5, 7.5, 4.5];
+    const av1 = [5.3, 7.2, 8.4, 2.4, 3.5,2.0];
+    const av2 = [8.0, 5.0, 4.5, 7.5, 6.5,4.0];
 
     function menorMaiorNota(notas) {
         let menor = Number.MAX_SAFE_INTEGER;
@@ -36,7 +36,6 @@
         let media = (av1[i] + av2[i]) / 2;
         medias[i] = media;
     }
-
     //Fazendo um bubble sort dos valores de media para ordena-los
     for (let i = 0; i < medias.length; i++) {
         for (let j = 0; j < medias.length - i; j++) {
@@ -64,6 +63,13 @@
     }
 
     document.write("Alunos aprovados(Media maior ou igual 5.0): " + contador + "<br>");
-    document.write("Notas dos alunos em recuperação: " + recuperacao)
+    document.write("Notas dos alunos em recuperação: " + recuperacao + "<br><br>");
 
+    document.write("PARTICIPANTES<br><br>");
+    document.write("Denis Rodrigues dos santos - 2425117 <br>");
+    document.write("Antônia Beatriz Castro Soares - 2426629<br>");
+    document.write("Thalidiany Moura de Oliveira - 2425095<br>");
+    document.write("Maria do Carmo de Oliveira Neta - 2428141<br>");
+    document.write("João Paulo Silva Gomes - 2425199<br>");
+    document.write("Douglas Façanha Policarpo - 2425081");
 </script>
